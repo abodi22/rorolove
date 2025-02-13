@@ -1,0 +1,193 @@
+/* Page background */
+body {
+    background-color: dimgray;
+}
+
+/* Heart piece styling */
+.piece {
+    background-color: #bf1522;
+    width: 100%;
+    height: 130px;
+    padding: 0px;
+}
+
+/* The pieces that need half width instead of full */
+.half {
+    width: 11% !important;
+}
+
+/* Container for each set of heart pieces in layers */
+.layer {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+/* Outer wrapper for each piece */
+.piece-outer {
+    position: relative;
+    display: inline-block;
+    background-color: antiquewhite;
+    opacity: 0.5;
+    width: 22%;
+}
+
+/* Shadow on the heart pieces */
+.shadow {
+    box-shadow: 0px 8px 8px #000;
+}
+
+.main {
+    height: 840px;
+    margin: 0 auto;
+    position: relative;
+    max-width: 800px;
+}
+
+/* Headings */
+h1, h2 {
+    text-align: center;
+    font-family: 'Barrio', cursive;
+    color: #cf7f85;
+    font-size: 3em;
+}
+
+.top {
+    padding: 25px;
+    padding-bottom: 0px;
+}
+
+/* Keyframe animations for color pulsing on heart pieces */
+@-webkit-keyframes loading {
+    0%   { background-color: #bf1522; }
+    50%  { background-color: #c4404a; }
+    100% { background-color: #bf1522; }
+}
+@-moz-keyframes loading {
+    0%   { background-color: #bf1522; }
+    50%  { background-color: #c4404a; }
+    100% { background-color: #bf1522; }
+}
+@keyframes loading {
+    0%   { background-color: #bf1522; }
+    50%  { background-color: #c4404a; }
+    100% { background-color: #bf1522; }
+}
+
+/* Heart piece shapes with animations */
+.a1 {
+    -webkit-animation: loading 1.3s 0.9s infinite;
+    -moz-animation: loading 1.3s 0.9s infinite;
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+.b1 {
+    -webkit-animation: loading 0.9s 1.5s infinite;
+    -moz-animation: loading 0.9s 1.5s infinite;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+.c1 {
+    -webkit-animation: loading 1.4s 0.9s infinite;
+    -moz-animation: loading 1.4s 0.9s infinite;
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+.d1 {
+    clip-path: polygon(0 100%, 50% 0, 0 0);
+    -webkit-animation: loading 1.2s 0.7s infinite;
+    -moz-animation: loading 1.2s 0.7s infinite;
+}
+.e1 {
+    clip-path: polygon(100% 0, 50% 0, 100% 100%);
+    -webkit-animation: loading 1.1s 0.9s infinite;
+    -moz-animation: loading 1.1s 0.9s infinite;
+}
+.f1 {
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+    -webkit-animation: loading 1s 0.9s infinite;
+    -moz-animation: loading 1s 0.9s infinite;
+}
+.g1 {
+    background-color: transparent;
+}
+
+/* Flip-card container */
+.flip-container {
+    perspective: 1000px;
+    padding-top: 30px;
+}
+
+/* Flip on hover */
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+/* Container and faces must match size */
+.flip-container,
+.front,
+.back {
+    width: 100%;
+    height: 860px;
+}
+
+/* 3D transform container */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.front,
+.back {
+    backface-visibility: hidden;
+    background-color: antiquewhite;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+    position: relative; /* needed so absolutely positioned .ar-logo stays on back */
+}
+
+/* Smaller devices: reduce piece size, etc. */
+@media only screen and (max-width: 768px) {
+    .piece {
+        height: 100px;
+    }
+    .main {
+        height: 750px;
+        margin-left: 10%;
+        margin-right: 10%;
+        min-width: 292px;
+    }
+}
+
+/* The Arabic text on the back, bigger with margins */
+.back h2 {
+    font-size: 3em;   /* bigger text */
+    margin-top: 5%;
+    line-height: 1.5;
+    margin-right: 2rem; /* keep text from hitting the right edge */
+    margin-left: 2rem;
+}
+
+/* The bottom-right logo on the back */
+.ar-logo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 150px; /* change as you like */
+    opacity: 0.8; 
+}
+
+.ar-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
